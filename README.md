@@ -27,3 +27,24 @@ python -m src.scraper
 
 # 5) Launch dashboard
 streamlit run dashboards/streamlit_app.py
+
+src/
+  config.py          # env & constants
+  scraper.py         # orchestrates fetch->parse->skills->store->alert
+  parsers.py         # text cleanup + posting parsing helpers
+  skills.py          # skill extraction utilities
+  storage.py         # CSV writer (swap for DB later)
+  alerts.py          # email alerts (optional)
+  sources/
+    base.py          # Source interface
+    company_rss.py   # Example source using RSS feeds
+dashboards/
+  streamlit_app.py   # Minimal dashboard
+data/
+  jobs.csv           # Collected data (appended)
+scripts/
+  run_once.sh
+  run_daily_cron.sh
+  windows_task_instructions.md
+tests/
+  test_skills.py     # simple unit test
